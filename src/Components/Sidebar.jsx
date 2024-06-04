@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import game_icon from "../assets/game_icon.png";
 import home from "../assets/home.png";
 import automobiles from "../assets/automobiles.png";
@@ -12,8 +12,11 @@ import tom from "../assets/tom.png";
 import megan from "../assets/megan.png";
 import cameron from "../assets/cameron.png";
 import simon from "../assets/simon.png";
+import { Context } from "./Context";
 
 const Sidebar = () => {
+  
+  const {sidebar}=useContext(Context)
   const sidebarCategories = [
     { src: home, name: "Home" },
     { src: game_icon, name: "Games" },
@@ -34,19 +37,19 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="w-60 p-4 bg-gray-100 border-r border-gray-300">
+    <div className={`p-4 bg-gray-100 border-none  ${sidebar===true? 'w-16':'w-60'}`}>
       {sidebarCategories.map((value, index) => (
         <div className="flex items-center py-2 hover:bg-gray-200 cursor-pointer" key={index}>
           <img src={value.src} alt={value.name} className="w-6 h-6 mr-4" />
-          <p className="text-sm text-gray-800">{value.name}</p>
+          <p className={`text-sm text-gray-800 ${sidebar===true? 'hidden':'block'}`}>{value.name}</p>
         </div>
       ))}
       <hr className="my-4 border-gray-300" />
-      <p className="text-xs text-gray-600 mb-2">SUBSCRIBED</p>
+      <p className={` ${sidebar===true? 'hidden':'text-xs text-gray-600 mb-2'}`}>SUBSCRIBED</p>
       {subscribes.map((value, index) => (
         <div className="flex items-center py-2 hover:bg-gray-200 cursor-pointer" key={index}>
           <img src={value.src} alt={value.name} className="w-6 h-6 mr-4 rounded-full" />
-          <p className="text-sm text-gray-800">{value.name}</p>
+          <p className={`text-sm text-gray-100  ${sidebar===true? 'hidden':'block'}`}>{value.name}</p>
         </div>
       ))}
     </div>

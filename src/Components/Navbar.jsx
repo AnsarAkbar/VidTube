@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import menu from "../assets/menu.png";
 import logo from "../assets/logo.png";
 import search from "../assets/search.png";
@@ -6,12 +6,15 @@ import upload from "../assets/upload.png";
 import more from "../assets/more.png";
 import notification from "../assets/notification.png";
 import profile_img from "../assets/jack.png";
+import { Context } from "./Context";
 
 const Navbar = () => {
+  let {setSidebar,sidebar}=useContext(Context)
+  console.log(sidebar)
   return (
     <div className="flex justify-between items-center max-w-[1920px] px-4 py-2 bg-white">
       <div className="flex items-center space-x-4">
-        <img src={menu} alt="Menu Icon" className="w-8 h-8" />
+        <img src={menu} onClick={()=>setSidebar(!sidebar)} alt="Menu Icon" className="w-8 h-8" />
         <img src={logo} alt="logo" className="w-32" />
       </div>
       <div className="flex items-center flex-grow max-w-lg relative">
