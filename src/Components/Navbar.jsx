@@ -10,7 +10,7 @@ import { Context } from "./Context";
 
 const Navbar = () => {
   let {setSidebar,sidebar}=useContext(Context)
-  console.log(sidebar)
+  // console.log(sidebar)
   return (
     <div className="flex justify-between items-center max-w-[1920px] px-4 py-2 bg-white">
       <div className="flex items-center space-x-4">

@@ -37,7 +37,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className={`p-4 bg-gray-100 border-none  ${sidebar===true? 'w-16':'w-60'}`}>
+    <div className={`p-4 bg-gray-50 border-none  ${sidebar===true? 'w-16':'w-60'}`}>
       {sidebarCategories.map((value, index) => (
         <div className="flex items-center py-2 hover:bg-gray-200 cursor-pointer" key={index}>
           <img src={value.src} alt={value.name} className="w-6 h-6 mr-4" />
@@ -49,7 +49,7 @@ const Sidebar = () => {
       {subscribes.map((value, index) => (
         <div className="flex items-center py-2 hover:bg-gray-200 cursor-pointer" key={index}>
           <img src={value.src} alt={value.name} className="w-6 h-6 mr-4 rounded-full" />
-          <p className={`text-sm text-gray-100  ${sidebar===true? 'hidden':'block'}`}>{value.name}</p>
+          <p className={`text-sm text-gray-600  ${sidebar===true? 'hidden':'block'}`}>{value.name}</p>
         </div>
       ))}
     </div>
