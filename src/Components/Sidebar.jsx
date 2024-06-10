@@ -14,19 +14,19 @@ import cameron from "../assets/cameron.png";
 import simon from "../assets/simon.png";
 import { Context } from "./Context";
 
-const Sidebar = () => {
+const Sidebar = ({category,setCategory}) => {
   
   const {sidebar}=useContext(Context)
   const sidebarCategories = [
-    { src: home, name: "Home" },
-    { src: game_icon, name: "Games" },
+    { src: home, name: "Home", id:"0"},
+    { src: game_icon, name: "Games", id:"20" },
     { src: automobiles, name: "Automobiles" },
-    { src: sports, name: "Sports" },
-    { src: entertainment, name: "Entertainment" },
-    { src: tech, name: "Technology" },
-    { src: music, name: "Music" },
-    { src: blogs, name: "Blogs" },
-    { src: news, name: "News" },
+    { src: sports, name: "Sports", id: "17" },
+    { src: entertainment, name: "Entertainment", id: "24" },
+    { src: tech, name: "Technology", id: "28" },
+    { src: music, name: "Music", id: "10" },
+    { src: blogs, name: "Blogs", id: "15" },
+    { src: news, name: "News", id: "25" },
   ];
 
   const subscribes = [
@@ -35,12 +35,12 @@ const Sidebar = () => {
     { src: cameron, name: "Justin Bieber" },
     { src: simon, name: "5-Minute Crafts" },
   ];
-
+  
   return (
-    <div className={`p-4 bg-gray-50 border-none  ${sidebar===true? 'w-16':'w-60'}`}>
+    <div className={`p-4 border-none  ${sidebar===true? 'w-16':'w-60'}`}>
       {sidebarCategories.map((value, index) => (
-        <div className="flex items-center py-2 hover:bg-gray-200 cursor-pointer" key={index}>
-          <img src={value.src} alt={value.name} className="w-6 h-6 mr-4" />
+        <div onClick={()=>setCategory(value.id)} className="flex items-center py-2 hover:bg-gray-200 cursor-pointer" key={index}>
+          <img src={value.src} alt={value.name}  className={`w-6 h-6 mr-4 ${category== value.id ? "pb-[2px] border-b-[3px] border-b-red-600 ":""}`} />
           <p className={`text-sm text-gray-800 ${sidebar===true? 'hidden':'block'}`}>{value.name}</p>
         </div>
       ))}

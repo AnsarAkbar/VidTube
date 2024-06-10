@@ -7,15 +7,16 @@ import more from "../assets/more.png";
 import notification from "../assets/notification.png";
 import profile_img from "../assets/jack.png";
 import { Context } from "./Context";
+import { Link, Route } from "react-router-dom";
 
 const Navbar = () => {
   let {setSidebar,sidebar}=useContext(Context)
-  // console.log(sidebar)
+  
   return (
     <div className="flex justify-between items-center max-w-[1920px] px-4 py-2 bg-white">
       <div className="flex items-center space-x-4">
         <img src={menu} onClick={()=>setSidebar(!sidebar)} alt="Menu Icon" className="w-8 h-8" />
-        <img src={logo} alt="logo" className="w-32" />
+        <Link to={"/"}><img src={logo} alt="logo" className="w-32" /></Link>
       </div>
       <div className="flex items-center flex-grow max-w-lg relative">
         <input
