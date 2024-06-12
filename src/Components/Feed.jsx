@@ -70,7 +70,7 @@ import moment from "moment";
 
 const Feed = ({ category }) => {
   const [data, setData] = useState([]);
-  console.log(category);
+  // console.log(data);
 
   const URL = `https:youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&videoCategoryId=${category}&key=${API_KEY}`;
 

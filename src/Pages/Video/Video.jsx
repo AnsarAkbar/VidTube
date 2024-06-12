@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 
 const Video = () => {
   const {categoryId,videoId}=useParams()
-  // console.log(items)
+  // console.log(categoryId,videoId)
   return (
     <div className="flex justify-between px-[4%]">
       <PlayVideo videoId={videoId}/>
